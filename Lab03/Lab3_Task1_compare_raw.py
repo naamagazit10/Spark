@@ -8,8 +8,8 @@ spark = SparkSession \
     .appName('ex3_clean_flights') \
     .getOrCreate()
 
-flights_df = spark.read.parquet('hdfs://course-hdfs:8020/data/source/flights/')
-flights_raw_df = spark.read.parquet('hdfs://course-hdfs:8020/data/source/flights_raw/')
+flights_df = spark.read.parquet('s3a://data/source/flights/')
+flights_raw_df = spark.read.parquet('s3a://data/source/flights_raw/')
 
 flights_distinct_df = flights_df.dropDuplicates()
 flights_raw_distinct_df = flights_raw_df.dropDuplicates()
